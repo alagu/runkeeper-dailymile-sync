@@ -74,14 +74,21 @@ div.flash {
   @include column(24, true); }
 
 #header {
-  padding: 1em 0;
+  padding: 1em 0 0 0;
   position: relative;
+  border-bottom: 1px solid lighten(#369, 50);
+  margin-bottom: 2em;
   h1 {
     font-weight: bold;
     line-height: 45px;
     color: #369;
     letter-spacing: -2px;
     @include column(16);
+    a {
+      color: #369;
+      text-decoration: none;
+      &:hover {
+        color: #444; } }
     img {
       height: 50px;
       margin-right: .25em;

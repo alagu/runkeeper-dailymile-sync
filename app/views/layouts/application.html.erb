@@ -13,7 +13,12 @@
 <body>
   <div id="wrapper">
     <div id="header">
-      <h1><%= image_tag('sync-logo.png') %>RunKeeper Sync</h1>
+      <h1>
+        <%= link_to(root_path) do %>
+          <%= image_tag('sync-logo.png') %>
+          RunKeeper Sync
+        <% end %>
+        </h1>
       <% unless current_page?(signup_path) %>
         <ul id="session">
           <% if current_user %>
