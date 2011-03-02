@@ -1,0 +1,27 @@
+<h2>Admin</h2>
+<h3>Users</h3>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>dailymile ID</th>
+      <th>RunKeeper ID</th>
+      <th>Status</th>
+      <th>Signed Up</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr class="<%= "#{user.active?} #{cycle('odd', 'even')}" %>">
+        <td><%= user.id %></td>
+        <td><%= user.name %></td>
+        <td><%= user.dailymile_id %></td>
+        <td><%= user.runkeeper_id %></td>
+        <td><%= user.state %></td>
+        <td><%= user.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @users %>
