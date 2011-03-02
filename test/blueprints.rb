@@ -8,7 +8,7 @@ end
 
 User.blueprint do
   provider { 'dailymile' }
-  dailymile_id { 'dm_user' }
+  dailymile_id { "dm_user-#{sn}" }
   runkeeper_id { 'rk_user' }
   name { "Joey User #{sn}" }
   last_activity_id { 23413432 }
