@@ -7,6 +7,7 @@ gem 'simple_form'
 gem 'mechanize'
 gem 'state_machine'
 gem 'httparty'
+gem 'hoptoad_notifier'
 gem 'omniauth', :git => 'http://github.com/cdmwebs/omniauth.git'
 
 group :development do
