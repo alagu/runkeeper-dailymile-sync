@@ -23,7 +23,12 @@ class Runkeeper
     @since = options[:since]
 
     activity_list = []
-    page = agent.get(activities_url)
+    begin
+      page = agent.get(activities_url)
+    rescue Exception => e
+      puts "ERROR: #{e.message}. URL: #{activities_url}"
+      return []
+    end
 
     page.search("div.activityMonth").each do |activity_entry|
       activity_url = "#{BASE_URL}#{activity_entry[:link]}"
