@@ -25,10 +25,14 @@ class Runkeeper
       activity_id = activity_entry[:link].split('/').last
       if activity_id.to_i > @since
         puts "fetching #{activity_url}"
-        activity_page = agent.get(activity_url)
-        activity = Activity.new(activity_page)
-        activity.url = activity_url
-        activity_list << activity
+        begin
+          activity_page = agent.get(activity_url)
+          activity = Activity.new(activity_page)
+          activity.url = activity_url
+          activity_list << activity
+        rescue Exception => e
+          puts "ERROR: #{e.message}. URL: #{activity_url}"
+        end
         return activity_list if activity_list.size >= @limit
       end
     end
