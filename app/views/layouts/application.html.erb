@@ -35,8 +35,12 @@ clientId: "<%= ENV['DAILYMILE_CLIENT_ID'] %>"
           RunKeeper Sync
         <% end %>
       </h1>
-      <% unless current_page?(signup_path) %>
-        <ul id="session">
+      <ul id="session">
+        <% if current_page?(signup_path) %>
+          <li>
+            <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Frkdm.heroku.com&amp;layout=standard&amp;show_faces=true&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>
+          </li>
+        <% else %>
           <% if current_user %>
             <li>
               <% if current_user.image_url.present? %>
@@ -52,8 +56,8 @@ clientId: "<%= ENV['DAILYMILE_CLIENT_ID'] %>"
           <% else %>
             <li><%= link_to "Sign in with Dailymile", "/auth/dailymile" %></li>
           <% end %>
-        </ul>
-      <% end %>
+        <% end %>
+      </ul>
     </div>
     <% if current_user && current_user.suspended? %>
       <%= notice("Your account is set to suspended. No syncing will occur. #{link_to('Update your preferences', account_path)} to enable syncing.".html_safe) %>
