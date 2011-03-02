@@ -63,6 +63,10 @@ div.flash {
     padding: .8em;
     margin: 0; } }
 
+ul.nav {
+  @include navvy;
+  margin-bottom: 1em; }
+
 #wrapper {
   background: #fff;
   padding: 0 1em;
