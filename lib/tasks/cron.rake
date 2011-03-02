@@ -11,7 +11,8 @@ task :cron => :environment do
           user.update_attribute(:last_activity_id, activity.id)
           user.activities.create(:content => activity.serializable_hash, :success => true, :response => response)
         rescue Exception => e
-          user.activities.create(:content => activity.serializable_hash, :success => false, :response => e.to_yaml)
+          puts e.message
+          user.activities.create(:content => activity.serializable_hash, :success => false, :response => response)
         end
       end
     end
