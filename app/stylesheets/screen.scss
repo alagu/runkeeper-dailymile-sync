@@ -8,16 +8,27 @@
 @import "fancy-buttons";
 
 $body-font: Lato, Helvetica, Arial, sans-serif;
-$fb-color: #6fcbfb;
+$fb-color: #369;
 $fb-light-text: white;
 $fb-dark-text: #222222;
-$fb-font-size: 24px;
+$fb-font-size: 14px;
+
+@mixin navvy {
+  @include horizontal-list;
+  li {
+    border-right: 1px solid #aaa;
+    padding: 0 .5em;
+    &:last-child {
+      border: none; } } }
+
+html, body {
+  height: 100%; }
 
 body {
-  @include container;
   @include blueprint-typography;
   @include blueprint-interaction;
   position: relative; 
+  background: #369;
   font: normal 13px/20px $body-font; }
 
 form {
@@ -36,31 +47,73 @@ form {
     margin-top: 1em;
     @include fancy-button; } }
 
-a.fancy {
-  @include fancy-button; }
-
+a {
+  color: #369;
+  font-weight: bold;
+  &.fancy {
+  @include fancy-button; 
+  &.loud {
+    @include fancy-button($fb-color, 24pt); } } }
 
 div.flash {
   @include column(24, true);
-  @include border-radius; }
+  @include border-radius;
+  padding: 0;
+  p {
+    padding: .8em;
+    margin: 0; } }
+
+#wrapper {
+  background: #fff;
+  padding: 0 1em;
+  @include box-shadow(#555, 2px, 2px, 20px);
+  @include border-bottom-radius;
+  @include container; }
+
+#header, #content, #footer {
+  @include column(24, true); }
 
 #header {
   padding: 1em 0;
   position: relative;
   h1 {
-    @include column(16); }
+    font-weight: bold;
+    line-height: 45px;
+    color: #369;
+    letter-spacing: -2px;
+    @include column(16);
+    img {
+      height: 50px;
+      margin-right: .25em;
+      float: left; } }
   #session {
-    @include column(8, true); 
-    @include horizontal-list;
+    @include navvy;
+    font-size: 16px;
     position: absolute;
     right: 0;
-    padding: 0.5em 0; } }
+    padding: 0; } }
 
-#header, #content, #footer {
-  @include column(24, true); }
+#content {
+  position: relative; }
+
+#help {
+  @include column(12); }
+
+#signin {
+  @include column(12, true); 
+  position: absolute;
+  text-align: center;
+  top: 25%; 
+  h2 {
+    font-weight: bold; } }
 
 #footer {
+  margin-top: 3em;
+  color: #999;
+  a {
+    color: #999; }
   ul {
-    @include horizontal-list; }
-
-}
+    float: left;
+    @include navvy; }
+  p {
+    float: right; } }

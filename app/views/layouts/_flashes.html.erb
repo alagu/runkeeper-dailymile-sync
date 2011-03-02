@@ -1,0 +1,5 @@
+<% flash.each_pair do |key, value| %>
+  <%= content_tag(:div, :class => "flash #{key}") do %>
+    <%= content_tag(:p, value) %>
+  <% end %>
+<% end %>

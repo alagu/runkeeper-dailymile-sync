@@ -4,5 +4,6 @@
   <%= f.input :name %>
   <%= f.input :runkeeper_id, :label => 'Runkeeper ID', :hint => 'Probably a number or your username.' %>
   <%= f.input :state, :include_blank => false, :collection => [['Active', 'active'], ['Suspended', 'suspended']], :hint => 'You can turn off syncing by setting this to suspended.' %>
-  <%= f.button :submit %>
+  <%= f.button :submit, 'Save Changes' %>
+  or <%= link_to('cancel', root_path) %>
 <% end %>

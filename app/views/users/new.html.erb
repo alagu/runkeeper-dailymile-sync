@@ -1,3 +1,13 @@
-<p style="text-align: center;">
-  <%= link_to('Sign in with dailymile', '/auth/dailymile', :class => 'fancy') %>
-</p>
+<div id="help">
+  <h3>What is all this, then?</h3>
+  <p>Sign in with your <%= link_to('dailymile', 'http://dailymile.com') %> account, 
+    add your <%= link_to('RunKeeper', 'http://runkeeper.com') %> user ID and sync!</p>
+  <h3>Do you store all my stuff?</h3>
+  <p>We don't store your passwords. We do store your user IDs and a log of the activities we synced.</p>
+  <h3>How much is this amazing service?</h3>
+  <p>Free! Unless it's wildly popular and people are lining up to pay thousands of dollars. Then it's thousands of dollars per month. We'll cross that bridge if we come to it.</p>
+</div>
+<div id="signin">
+  <h2>Ready?</h2>
+  <%= link_to('Sign in with dailymile', '/auth/dailymile', :class => 'fancy loud') %>
+</div>

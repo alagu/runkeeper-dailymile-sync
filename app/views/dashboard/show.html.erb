@@ -1,9 +1,10 @@
-<h2>Dashboard</h2>
+<h2>My Dashboard</h2>
 
 <% unless current_user.runkeeper_id.present? %>
-  <div class="flash notice">You should <%= link_to('enter your Runkeeper user name or ID', account_path) %>.</div>
+  <%= notice("You should #{link_to('enter your Runkeeper user name or ID', account_path)}.".html_safe) %>
 <% end %>
 
+<% unless @activities.empty? %>
 <table>
   <thead>
     <tr>
@@ -24,3 +25,6 @@
     <% end %>
   </tbody>
 </table>
+<% else %>
+  <p>No activities synced yet. Check back in an hour or two.</p>
+<% end %>

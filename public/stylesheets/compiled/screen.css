@@ -60,7 +60,7 @@ a img {
 
 /* incase an inverted custom gradient isn't specified */
 /* line 177, ../../../vendor/ruby/1.9.1/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
-.fancy-button-reset-base-class, form input.button, a.fancy {
+.fancy-button-reset-base-class, form input.button, a.fancy, a.fancy.loud {
   font-family: "Lucida Grande", Lucida, Arial, sans-serif;
   background: url('/images/button_bg.png') repeat-x bottom left;
   margin: 0;
@@ -73,22 +73,24 @@ a img {
   font-weight: bold;
 }
 /* line 165, ../../../vendor/ruby/1.9.1/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
-.fancy-button-reset-base-class::-moz-focus-inner, form input.button::-moz-focus-inner, a.fancy::-moz-focus-inner {
+.fancy-button-reset-base-class::-moz-focus-inner, form input.button::-moz-focus-inner, a.fancy::-moz-focus-inner, a.fancy.loud::-moz-focus-inner {
   border: none;
   padding: 0;
 }
 /* line 168, ../../../vendor/ruby/1.9.1/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
-.fancy-button-reset-base-class:focus, form input.button:focus, a.fancy:focus {
+.fancy-button-reset-base-class:focus, form input.button:focus, a.fancy:focus, a.fancy.loud:focus {
   outline: none;
 }
 
-/* line 16, ../../../app/stylesheets/screen.scss */
+/* line 24, ../../../app/stylesheets/screen.scss */
+html, body {
+  height: 100%;
+}
+
+/* line 27, ../../../app/stylesheets/screen.scss */
 body {
-  width: 950px;
-  margin: 0 auto;
-  overflow: hidden;
-  *zoom: 1;
   position: relative;
+  background: #369;
   font: normal 13px/20px Lato, Helvetica, Arial, sans-serif;
 }
 /* line 39, ../../../vendor/ruby/1.9.1/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
@@ -411,21 +413,21 @@ form textarea {
   width: 390px;
   height: 250px;
 }
-/* line 25, ../../../app/stylesheets/screen.scss */
+/* line 36, ../../../app/stylesheets/screen.scss */
 form label {
   margin: 0.5em 0;
   font: normal 16px/18px Lato, Helvetica, Arial, sans-serif;
   float: left;
   width: 20%;
 }
-/* line 30, ../../../app/stylesheets/screen.scss */
+/* line 41, ../../../app/stylesheets/screen.scss */
 form span.hint {
   color: #aaa;
   font: normal 12px/18px Lato, Helvetica, Arial, sans-serif;
   margin-left: 20%;
   display: block;
 }
-/* line 35, ../../../app/stylesheets/screen.scss */
+/* line 46, ../../../app/stylesheets/screen.scss */
 form input.button {
   margin-top: 1em;
   -moz-border-radius: 6px;
@@ -434,20 +436,20 @@ form input.button {
   -ms-border-radius: 6px;
   -khtml-border-radius: 6px;
   border-radius: 6px;
-  font-size: 24px;
+  font-size: 14px;
   line-height: 1.2em;
   padding: 0.3em 1em;
   border-width: 1px;
-  background-color: #6bccff;
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #ffffff), color-stop(10%, #b9e6fd), color-stop(50%, #60c6fb), color-stop(50%, #51c0fa), color-stop(100%, #83d2fc));
-  background-image: -moz-linear-gradient(top, #ffffff 0%, #b9e6fd 10%, #60c6fb 50%, #51c0fa 50%, #83d2fc 100%);
-  background-image: linear-gradient(top, #ffffff 0%, #b9e6fd 10%, #60c6fb 50%, #51c0fa 50%, #83d2fc 100%);
-  border-color: #25b0f9;
-  text-shadow: #b7e6ff 0px 1px 1px;
-  -moz-box-shadow: rgba(255, 255, 255, 0.71) 0 0 0.1em 1px inset;
-  -webkit-box-shadow: rgba(255, 255, 255, 0.71) 0 0 0.1em 1px inset;
-  -o-box-shadow: rgba(255, 255, 255, 0.71) 0 0 0.1em 1px inset;
-  box-shadow: rgba(255, 255, 255, 0.71) 0 0 0.1em 1px inset;
+  background-color: #0a66c2;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #98badd), color-stop(10%, #538cc6), color-stop(50%, #2f5e8e), color-stop(50%, #2b5782), color-stop(100%, #3870a8));
+  background-image: -moz-linear-gradient(top, #98badd 0%, #538cc6 10%, #2f5e8e 50%, #2b5782 50%, #3870a8 100%);
+  background-image: linear-gradient(top, #98badd 0%, #538cc6 10%, #2f5e8e 50%, #2b5782 50%, #3870a8 100%);
+  border-color: #204060;
+  text-shadow: #042649 0px 1px 1px;
+  -moz-box-shadow: rgba(255, 255, 255, 0.4) 0 0 0.1em 1px inset;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.4) 0 0 0.1em 1px inset;
+  -o-box-shadow: rgba(255, 255, 255, 0.4) 0 0 0.1em 1px inset;
+  box-shadow: rgba(255, 255, 255, 0.4) 0 0 0.1em 1px inset;
   -moz-background-clip: padding;
   -webkit-background-clip: padding;
   -o-background-clip: padding-box;
@@ -455,42 +457,47 @@ form input.button {
   -khtml-background-clip: padding-box;
   background-clip: padding-box;
 }
-/* line 120, ../../../vendor/ruby/1.9.1/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 116, ../../../vendor/ruby/1.9.1/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 form input.button, form input.button:visited {
-  color: #222222;
+  color: white;
 }
 /* line 31, ../../../vendor/ruby/1.9.1/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 form input.button:hover, form input.button:focus {
-  background-color: #5cc7ff;
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #ffffff), color-stop(10%, #abe1fd), color-stop(50%, #51c0fa), color-stop(50%, #42bbfa), color-stop(100%, #74cdfb));
-  background-image: -moz-linear-gradient(top, #ffffff 0%, #abe1fd 10%, #51c0fa 50%, #42bbfa 50%, #74cdfb 100%);
-  background-image: linear-gradient(top, #ffffff 0%, #abe1fd 10%, #51c0fa 50%, #42bbfa 50%, #74cdfb 100%);
-  border-color: #16abf9;
-  text-shadow: #a8e1ff 0px 1px 1px;
+  background-color: #095eb3;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #8cb2d9), color-stop(10%, #4785c2), color-stop(50%, #2b5782), color-stop(50%, #284f77), color-stop(100%, #34699d));
+  background-image: -moz-linear-gradient(top, #8cb2d9 0%, #4785c2 10%, #2b5782 50%, #284f77 50%, #34699d 100%);
+  background-image: linear-gradient(top, #8cb2d9 0%, #4785c2 10%, #2b5782 50%, #284f77 50%, #34699d 100%);
+  border-color: #1c3854;
+  text-shadow: #031f3a 0px 1px 1px;
 }
-/* line 120, ../../../vendor/ruby/1.9.1/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 116, ../../../vendor/ruby/1.9.1/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 form input.button:hover, form input.button:hover:visited, form input.button:focus, form input.button:focus:visited {
-  color: #222222;
+  color: white;
 }
 /* line 36, ../../../vendor/ruby/1.9.1/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 form input.button:active {
-  background-color: #4cc2ff;
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #51c0fa), color-stop(30%, #5bc4fa), color-stop(50%, #47bdfa), color-stop(50%, #38b7f9), color-stop(100%, #79cffb));
-  background-image: -moz-linear-gradient(top, #51c0fa 0%, #5bc4fa 30%, #47bdfa 50%, #38b7f9 50%, #79cffb 100%);
-  background-image: linear-gradient(top, #51c0fa 0%, #5bc4fa 30%, #47bdfa 50%, #38b7f9 50%, #79cffb 100%);
-  border-color: #07a5f8;
-  text-shadow: #99dcff 0px -1px -1px;
-  -moz-box-shadow: #25b0f9 0 0.08em 0.1em 1px inset;
-  -webkit-box-shadow: #25b0f9 0 0.08em 0.1em 1px inset;
-  -o-box-shadow: #25b0f9 0 0.08em 0.1em 1px inset;
-  box-shadow: #25b0f9 0 0.08em 0.1em 1px inset;
+  background-color: #0957a5;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #2b5782), color-stop(30%, #2e5c8a), color-stop(50%, #29527a), color-stop(50%, #254a6f), color-stop(100%, #366ba1));
+  background-image: -moz-linear-gradient(top, #2b5782 0%, #2e5c8a 30%, #29527a 50%, #254a6f 50%, #366ba1 100%);
+  background-image: linear-gradient(top, #2b5782 0%, #2e5c8a 30%, #29527a 50%, #254a6f 50%, #366ba1 100%);
+  border-color: #183049;
+  text-shadow: #02172c 0px -1px -1px;
+  -moz-box-shadow: #204060 0 0.08em 0.1em 1px inset;
+  -webkit-box-shadow: #204060 0 0.08em 0.1em 1px inset;
+  -o-box-shadow: #204060 0 0.08em 0.1em 1px inset;
+  box-shadow: #204060 0 0.08em 0.1em 1px inset;
 }
-/* line 120, ../../../vendor/ruby/1.9.1/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 116, ../../../vendor/ruby/1.9.1/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 form input.button:active, form input.button:active:visited {
-  color: #222222;
+  color: white;
 }
 
-/* line 39, ../../../app/stylesheets/screen.scss */
+/* line 50, ../../../app/stylesheets/screen.scss */
+a {
+  color: #369;
+  font-weight: bold;
+}
+/* line 53, ../../../app/stylesheets/screen.scss */
 a.fancy {
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -498,20 +505,20 @@ a.fancy {
   -ms-border-radius: 6px;
   -khtml-border-radius: 6px;
   border-radius: 6px;
-  font-size: 24px;
+  font-size: 14px;
   line-height: 1.2em;
   padding: 0.3em 1em;
   border-width: 1px;
-  background-color: #6bccff;
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #ffffff), color-stop(10%, #b9e6fd), color-stop(50%, #60c6fb), color-stop(50%, #51c0fa), color-stop(100%, #83d2fc));
-  background-image: -moz-linear-gradient(top, #ffffff 0%, #b9e6fd 10%, #60c6fb 50%, #51c0fa 50%, #83d2fc 100%);
-  background-image: linear-gradient(top, #ffffff 0%, #b9e6fd 10%, #60c6fb 50%, #51c0fa 50%, #83d2fc 100%);
-  border-color: #25b0f9;
-  text-shadow: #b7e6ff 0px 1px 1px;
-  -moz-box-shadow: rgba(255, 255, 255, 0.71) 0 0 0.1em 1px inset;
-  -webkit-box-shadow: rgba(255, 255, 255, 0.71) 0 0 0.1em 1px inset;
-  -o-box-shadow: rgba(255, 255, 255, 0.71) 0 0 0.1em 1px inset;
-  box-shadow: rgba(255, 255, 255, 0.71) 0 0 0.1em 1px inset;
+  background-color: #0a66c2;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #98badd), color-stop(10%, #538cc6), color-stop(50%, #2f5e8e), color-stop(50%, #2b5782), color-stop(100%, #3870a8));
+  background-image: -moz-linear-gradient(top, #98badd 0%, #538cc6 10%, #2f5e8e 50%, #2b5782 50%, #3870a8 100%);
+  background-image: linear-gradient(top, #98badd 0%, #538cc6 10%, #2f5e8e 50%, #2b5782 50%, #3870a8 100%);
+  border-color: #204060;
+  text-shadow: #042649 0px 1px 1px;
+  -moz-box-shadow: rgba(255, 255, 255, 0.4) 0 0 0.1em 1px inset;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.4) 0 0 0.1em 1px inset;
+  -o-box-shadow: rgba(255, 255, 255, 0.4) 0 0 0.1em 1px inset;
+  box-shadow: rgba(255, 255, 255, 0.4) 0 0 0.1em 1px inset;
   -moz-background-clip: padding;
   -webkit-background-clip: padding;
   -o-background-clip: padding-box;
@@ -519,42 +526,105 @@ a.fancy {
   -khtml-background-clip: padding-box;
   background-clip: padding-box;
 }
-/* line 120, ../../../vendor/ruby/1.9.1/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 116, ../../../vendor/ruby/1.9.1/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 a.fancy, a.fancy:visited {
-  color: #222222;
+  color: white;
 }
 /* line 31, ../../../vendor/ruby/1.9.1/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 a.fancy:hover, a.fancy:focus {
-  background-color: #5cc7ff;
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #ffffff), color-stop(10%, #abe1fd), color-stop(50%, #51c0fa), color-stop(50%, #42bbfa), color-stop(100%, #74cdfb));
-  background-image: -moz-linear-gradient(top, #ffffff 0%, #abe1fd 10%, #51c0fa 50%, #42bbfa 50%, #74cdfb 100%);
-  background-image: linear-gradient(top, #ffffff 0%, #abe1fd 10%, #51c0fa 50%, #42bbfa 50%, #74cdfb 100%);
-  border-color: #16abf9;
-  text-shadow: #a8e1ff 0px 1px 1px;
+  background-color: #095eb3;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #8cb2d9), color-stop(10%, #4785c2), color-stop(50%, #2b5782), color-stop(50%, #284f77), color-stop(100%, #34699d));
+  background-image: -moz-linear-gradient(top, #8cb2d9 0%, #4785c2 10%, #2b5782 50%, #284f77 50%, #34699d 100%);
+  background-image: linear-gradient(top, #8cb2d9 0%, #4785c2 10%, #2b5782 50%, #284f77 50%, #34699d 100%);
+  border-color: #1c3854;
+  text-shadow: #031f3a 0px 1px 1px;
 }
-/* line 120, ../../../vendor/ruby/1.9.1/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 116, ../../../vendor/ruby/1.9.1/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 a.fancy:hover, a.fancy:hover:visited, a.fancy:focus, a.fancy:focus:visited {
-  color: #222222;
+  color: white;
 }
 /* line 36, ../../../vendor/ruby/1.9.1/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 a.fancy:active {
-  background-color: #4cc2ff;
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #51c0fa), color-stop(30%, #5bc4fa), color-stop(50%, #47bdfa), color-stop(50%, #38b7f9), color-stop(100%, #79cffb));
-  background-image: -moz-linear-gradient(top, #51c0fa 0%, #5bc4fa 30%, #47bdfa 50%, #38b7f9 50%, #79cffb 100%);
-  background-image: linear-gradient(top, #51c0fa 0%, #5bc4fa 30%, #47bdfa 50%, #38b7f9 50%, #79cffb 100%);
-  border-color: #07a5f8;
-  text-shadow: #99dcff 0px -1px -1px;
-  -moz-box-shadow: #25b0f9 0 0.08em 0.1em 1px inset;
-  -webkit-box-shadow: #25b0f9 0 0.08em 0.1em 1px inset;
-  -o-box-shadow: #25b0f9 0 0.08em 0.1em 1px inset;
-  box-shadow: #25b0f9 0 0.08em 0.1em 1px inset;
+  background-color: #0957a5;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #2b5782), color-stop(30%, #2e5c8a), color-stop(50%, #29527a), color-stop(50%, #254a6f), color-stop(100%, #366ba1));
+  background-image: -moz-linear-gradient(top, #2b5782 0%, #2e5c8a 30%, #29527a 50%, #254a6f 50%, #366ba1 100%);
+  background-image: linear-gradient(top, #2b5782 0%, #2e5c8a 30%, #29527a 50%, #254a6f 50%, #366ba1 100%);
+  border-color: #183049;
+  text-shadow: #02172c 0px -1px -1px;
+  -moz-box-shadow: #204060 0 0.08em 0.1em 1px inset;
+  -webkit-box-shadow: #204060 0 0.08em 0.1em 1px inset;
+  -o-box-shadow: #204060 0 0.08em 0.1em 1px inset;
+  box-shadow: #204060 0 0.08em 0.1em 1px inset;
 }
-/* line 120, ../../../vendor/ruby/1.9.1/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 116, ../../../vendor/ruby/1.9.1/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 a.fancy:active, a.fancy:active:visited {
-  color: #222222;
+  color: white;
+}
+/* line 55, ../../../app/stylesheets/screen.scss */
+a.fancy.loud {
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -o-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -khtml-border-radius: 6px;
+  border-radius: 6px;
+  font-size: 24pt;
+  line-height: 1.2em;
+  padding: 0.3em 1em;
+  border-width: 1px;
+  background-color: #0a66c2;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #98badd), color-stop(10%, #538cc6), color-stop(50%, #2f5e8e), color-stop(50%, #2b5782), color-stop(100%, #3870a8));
+  background-image: -moz-linear-gradient(top, #98badd 0%, #538cc6 10%, #2f5e8e 50%, #2b5782 50%, #3870a8 100%);
+  background-image: linear-gradient(top, #98badd 0%, #538cc6 10%, #2f5e8e 50%, #2b5782 50%, #3870a8 100%);
+  border-color: #204060;
+  text-shadow: #042649 0px 1px 1px;
+  -moz-box-shadow: rgba(255, 255, 255, 0.4) 0 0 0.1em 1px inset;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.4) 0 0 0.1em 1px inset;
+  -o-box-shadow: rgba(255, 255, 255, 0.4) 0 0 0.1em 1px inset;
+  box-shadow: rgba(255, 255, 255, 0.4) 0 0 0.1em 1px inset;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding;
+  -o-background-clip: padding-box;
+  -ms-background-clip: padding-box;
+  -khtml-background-clip: padding-box;
+  background-clip: padding-box;
+}
+/* line 116, ../../../vendor/ruby/1.9.1/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+a.fancy.loud, a.fancy.loud:visited {
+  color: white;
+}
+/* line 31, ../../../vendor/ruby/1.9.1/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+a.fancy.loud:hover, a.fancy.loud:focus {
+  background-color: #095eb3;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #8cb2d9), color-stop(10%, #4785c2), color-stop(50%, #2b5782), color-stop(50%, #284f77), color-stop(100%, #34699d));
+  background-image: -moz-linear-gradient(top, #8cb2d9 0%, #4785c2 10%, #2b5782 50%, #284f77 50%, #34699d 100%);
+  background-image: linear-gradient(top, #8cb2d9 0%, #4785c2 10%, #2b5782 50%, #284f77 50%, #34699d 100%);
+  border-color: #1c3854;
+  text-shadow: #031f3a 0px 1px 1px;
+}
+/* line 116, ../../../vendor/ruby/1.9.1/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+a.fancy.loud:hover, a.fancy.loud:hover:visited, a.fancy.loud:focus, a.fancy.loud:focus:visited {
+  color: white;
+}
+/* line 36, ../../../vendor/ruby/1.9.1/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+a.fancy.loud:active {
+  background-color: #0957a5;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #2b5782), color-stop(30%, #2e5c8a), color-stop(50%, #29527a), color-stop(50%, #254a6f), color-stop(100%, #366ba1));
+  background-image: -moz-linear-gradient(top, #2b5782 0%, #2e5c8a 30%, #29527a 50%, #254a6f 50%, #366ba1 100%);
+  background-image: linear-gradient(top, #2b5782 0%, #2e5c8a 30%, #29527a 50%, #254a6f 50%, #366ba1 100%);
+  border-color: #183049;
+  text-shadow: #02172c 0px -1px -1px;
+  -moz-box-shadow: #204060 0 0.08em 0.1em 1px inset;
+  -webkit-box-shadow: #204060 0 0.08em 0.1em 1px inset;
+  -o-box-shadow: #204060 0 0.08em 0.1em 1px inset;
+  box-shadow: #204060 0 0.08em 0.1em 1px inset;
+}
+/* line 116, ../../../vendor/ruby/1.9.1/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+a.fancy.loud:active, a.fancy.loud:active:visited {
+  color: white;
 }
 
-/* line 43, ../../../app/stylesheets/screen.scss */
+/* line 58, ../../../app/stylesheets/screen.scss */
 div.flash {
   display: inline;
   float: left;
@@ -566,19 +636,67 @@ div.flash {
   -ms-border-radius: 5px;
   -khtml-border-radius: 5px;
   border-radius: 5px;
+  padding: 0;
 }
 /* line 138, ../../../vendor/ruby/1.9.1/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html div.flash {
   overflow-x: hidden;
 }
+/* line 62, ../../../app/stylesheets/screen.scss */
+div.flash p {
+  padding: .8em;
+  margin: 0;
+}
 
-/* line 47, ../../../app/stylesheets/screen.scss */
+/* line 66, ../../../app/stylesheets/screen.scss */
+#wrapper {
+  background: #fff;
+  padding: 0 1em;
+  -moz-box-shadow: #555555 2px 2px 20px 0;
+  -webkit-box-shadow: #555555 2px 2px 20px 0;
+  -o-box-shadow: #555555 2px 2px 20px 0;
+  box-shadow: #555555 2px 2px 20px 0;
+  -moz-border-radius-bottomleft: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -o-border-bottom-left-radius: 5px;
+  -ms-border-bottom-left-radius: 5px;
+  -khtml-border-bottom-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -o-border-bottom-right-radius: 5px;
+  -ms-border-bottom-right-radius: 5px;
+  -khtml-border-bottom-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  width: 950px;
+  margin: 0 auto;
+  overflow: hidden;
+  *zoom: 1;
+}
+
+/* line 73, ../../../app/stylesheets/screen.scss */
+#header, #content, #footer {
+  display: inline;
+  float: left;
+  margin-right: 0;
+  width: 950px;
+}
+/* line 138, ../../../vendor/ruby/1.9.1/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+* html #header, * html #content, * html #footer {
+  overflow-x: hidden;
+}
+
+/* line 76, ../../../app/stylesheets/screen.scss */
 #header {
   padding: 1em 0;
   position: relative;
 }
-/* line 50, ../../../app/stylesheets/screen.scss */
+/* line 79, ../../../app/stylesheets/screen.scss */
 #header h1 {
+  font-weight: bold;
+  line-height: 45px;
+  color: #369;
+  letter-spacing: -2px;
   display: inline;
   float: left;
   margin-right: 10px;
@@ -588,25 +706,24 @@ div.flash {
 * html #header h1 {
   overflow-x: hidden;
 }
-/* line 52, ../../../app/stylesheets/screen.scss */
-#header #session {
-  display: inline;
+/* line 85, ../../../app/stylesheets/screen.scss */
+#header h1 img {
+  height: 50px;
+  margin-right: .25em;
   float: left;
-  margin-right: 0;
-  width: 310px;
+}
+/* line 89, ../../../app/stylesheets/screen.scss */
+#header #session {
   margin: 0;
   padding: 0;
   border: 0;
   outline: 0;
   overflow: hidden;
   *zoom: 1;
+  font-size: 16px;
   position: absolute;
   right: 0;
-  padding: 0.5em 0;
-}
-/* line 138, ../../../vendor/ruby/1.9.1/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
-* html #header #session {
-  overflow-x: hidden;
+  padding: 0;
 }
 /* line 56, ../../../vendor/ruby/1.9.1/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal-list.scss */
 #header #session li {
@@ -627,21 +744,64 @@ div.flash {
 #header #session li:last-child, #header #session li.last {
   padding-right: 0;
 }
+/* line 18, ../../../app/stylesheets/screen.scss */
+#header #session li {
+  border-right: 1px solid #aaa;
+  padding: 0 .5em;
+}
+/* line 21, ../../../app/stylesheets/screen.scss */
+#header #session li:last-child {
+  border: none;
+}
 
-/* line 59, ../../../app/stylesheets/screen.scss */
-#header, #content, #footer {
+/* line 96, ../../../app/stylesheets/screen.scss */
+#content {
+  position: relative;
+}
+
+/* line 99, ../../../app/stylesheets/screen.scss */
+#help {
   display: inline;
   float: left;
-  margin-right: 0;
-  width: 950px;
+  margin-right: 10px;
+  width: 470px;
 }
 /* line 138, ../../../vendor/ruby/1.9.1/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
-* html #header, * html #content, * html #footer {
+* html #help {
   overflow-x: hidden;
 }
 
-/* line 63, ../../../app/stylesheets/screen.scss */
+/* line 102, ../../../app/stylesheets/screen.scss */
+#signin {
+  display: inline;
+  float: left;
+  margin-right: 0;
+  width: 470px;
+  position: absolute;
+  text-align: center;
+  top: 25%;
+}
+/* line 138, ../../../vendor/ruby/1.9.1/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+* html #signin {
+  overflow-x: hidden;
+}
+/* line 107, ../../../app/stylesheets/screen.scss */
+#signin h2 {
+  font-weight: bold;
+}
+
+/* line 110, ../../../app/stylesheets/screen.scss */
+#footer {
+  margin-top: 3em;
+  color: #999;
+}
+/* line 113, ../../../app/stylesheets/screen.scss */
+#footer a {
+  color: #999;
+}
+/* line 115, ../../../app/stylesheets/screen.scss */
 #footer ul {
+  float: left;
   margin: 0;
   padding: 0;
   border: 0;
@@ -667,4 +827,17 @@ div.flash {
 /* line 46, ../../../vendor/ruby/1.9.1/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal-list.scss */
 #footer ul li:last-child, #footer ul li.last {
   padding-right: 0;
+}
+/* line 18, ../../../app/stylesheets/screen.scss */
+#footer ul li {
+  border-right: 1px solid #aaa;
+  padding: 0 .5em;
+}
+/* line 21, ../../../app/stylesheets/screen.scss */
+#footer ul li:last-child {
+  border: none;
+}
+/* line 118, ../../../app/stylesheets/screen.scss */
+#footer p {
+  float: right;
 }
