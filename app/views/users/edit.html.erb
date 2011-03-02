@@ -1,0 +1,8 @@
+<h2>My Account</h2>
+<p><%= link_to('Go back home', root_path) %>.</p>
+<%= simple_form_for(current_user) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :runkeeper_id, :label => 'Runkeeper ID', :hint => 'Probably a number or your username.' %>
+  <%= f.input :state, :include_blank => false, :collection => [['Active', 'active'], ['Suspended', 'suspended']], :hint => 'You can turn off syncing by setting this to suspended.' %>
+  <%= f.button :submit %>
+<% end %>

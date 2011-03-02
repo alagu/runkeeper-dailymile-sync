@@ -1,0 +1,66 @@
+@import "compass/reset";
+@import "compass/utilities";
+@import "compass/css3";
+@import "blueprint/grid";
+@import "blueprint/typography";
+@import "blueprint/interaction";
+@import "blueprint/form";
+@import "fancy-buttons";
+
+$body-font: Lato, Helvetica, Arial, sans-serif;
+$fb-color: #6fcbfb;
+$fb-light-text: white;
+$fb-dark-text: #222222;
+$fb-font-size: 24px;
+
+body {
+  @include container;
+  @include blueprint-typography;
+  @include blueprint-interaction;
+  position: relative; 
+  font: normal 13px/20px $body-font; }
+
+form {
+  @include blueprint-form;
+  label {
+    margin: 0.5em 0;
+    font: normal 16px/18px $body-font;
+    float: left;
+    width: 20%; }
+  span.hint {
+    color: #aaa;
+    font: normal 12px/18px $body-font;
+    margin-left: 20%;
+    display: block; }
+  input.button {
+    margin-top: 1em;
+    @include fancy-button; } }
+
+a.fancy {
+  @include fancy-button; }
+
+
+div.flash {
+  @include column(24, true);
+  @include border-radius; }
+
+#header {
+  padding: 1em 0;
+  position: relative;
+  h1 {
+    @include column(16); }
+  #session {
+    @include column(8, true); 
+    @include horizontal-list;
+    position: absolute;
+    right: 0;
+    padding: 0.5em 0; } }
+
+#header, #content, #footer {
+  @include column(24, true); }
+
+#footer {
+  ul {
+    @include horizontal-list; }
+
+}

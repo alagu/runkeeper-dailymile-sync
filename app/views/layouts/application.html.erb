@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sync</title>
+  <%= stylesheet_link_tag '//fonts.googleapis.com/css?family=Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic', :media => 'screen, projection' %>
+  <%= stylesheet_link_tag 'compiled/screen.css', :media => 'screen, projection' %>
+  <!-- [if IE] -->
+    <%= stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection' %>
+  <!-- end -->
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+  <div id="header">
+    <h1>Runkeeper Sync</h1>
+    <% unless current_page?(signup_path) %>
+      <ul id="session">
+        <% if current_user %>
+          <li>Welcome, <%= current_user.name %>!</li>
+          <li><%= link_to "My Profile", account_path %></li>
+          <li><%= link_to "Sign Out", signout_path %></li>
+        <% else %>
+          <li><%= link_to "Sign in with Dailymile", "/auth/dailymile" %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+  <% flash.each_pair do |key, value| %>
+    <%= content_tag(:div, value, :class => "flash #{key}") %>
+  <% end %>
+  <div id="content">
+    <%= yield %>
+  </div>
+  <div id="footer">
+    <ul>
+      <li>About</li>
+      <li><%= link_to('Contact Me') %></li>
+    </ul>
+    <p>RunKeeper Sync by <%= mail_to('chris@26webs.com', 'Chris Moore') %>.</p>
+  </div>
+</body>
+</html>
