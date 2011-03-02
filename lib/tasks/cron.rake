@@ -7,14 +7,11 @@ task :cron => :environment do
     activities.each do |activity|
       User.transaction do
         begin
-          puts activity.to_yaml
           response = Dailymile.post("/entries.json?oauth_token=#{user.access_token}", :query => activity.to_dailymile)
-          puts response.to_yaml
           user.update_attribute(:last_activity_id, activity.id)
-          user.activities.create(:content => activity.serializable_hash, :success => true, :response => response)
+          user.activities.create(:content => activity.as_json, :success => true, :response => response)
         rescue Exception => e
-          puts e.message
-          user.activities.create(:content => activity.serializable_hash, :success => false, :response => response)
+          user.activities.create(:content => activity.as_json, :success => false, :response => response)
         end
       end
     end
