@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   validates_presence_of :dailymile_id
   validates_uniqueness_of :dailymile_id
 
-  scope :active, where(:state => 'active')
+  scope :active, where("state = 'active' and runkeeper_id is not null")
 
   state_machine :initial => :active do
     state :active
