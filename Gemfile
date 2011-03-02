@@ -21,5 +21,5 @@ end
 group :test do
   gem 'capybara'
   gem 'shoulda'
-  gem 'machinist'
+  gem 'machinist', '>= 2.0.0.beta1'
 end
