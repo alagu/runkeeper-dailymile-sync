@@ -1,6 +1,6 @@
 desc "This task is called by the Heroku cron add-on"
 task :cron => :environment do
-  User.active.each do |user|
+  User.public.active.each do |user|
     runkeeper = Runkeeper.new(user.runkeeper_id)
     next if runkeeper.nil?
     activities = runkeeper.activities(:since => user.last_activity_id).reverse

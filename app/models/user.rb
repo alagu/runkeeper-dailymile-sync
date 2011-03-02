@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :dailymile_id
 
   scope :active, where("state = 'active' and runkeeper_id is not null")
+  scope :public, where(:rk_private => false)
 
   state_machine :initial => :active do
     state :active

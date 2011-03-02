@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110302174608) do
+ActiveRecord::Schema.define(:version => 20110302200302) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20110302174608) do
     t.string   "state"
     t.string   "image_url"
     t.boolean  "admin",            :default => false
+    t.boolean  "rk_private",       :default => false
   end
 
   add_index "users", ["state"], :name => "index_users_on_state"
