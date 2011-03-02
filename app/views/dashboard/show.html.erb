@@ -5,26 +5,26 @@
 <% end %>
 
 <% unless @activities.empty? %>
-<table>
-  <thead>
-    <tr>
-      <th>When</th>
-      <th>RunKeeper ID</th>
-      <th>dailymile ID</th>
-      <th>Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @activities.each do |activity| %>
-      <tr class="<%= "#{activity.success?} #{cycle('odd', 'even')}" %>">
-        <td><%= activity.created_at %></td>
-        <td><%= link_to(activity.content[:id], "http://runkeeper.com/user/#{current_user.runkeeper_id}/activity/#{activity.content[:id]}") %></td>
-        <td><%= link_to(activity.response["id"], activity.response["url"]) %></td>
-        <td><%= activity.success? %></td>
+  <table>
+    <thead>
+      <tr>
+        <th>When</th>
+        <th>RunKeeper ID</th>
+        <th>dailymile ID</th>
+        <th>Status</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @activities.each do |activity| %>
+        <tr class="<%= "#{activity.success?} #{cycle('odd', 'even')}" %>">
+          <td><%= activity.created_at %></td>
+          <td><%= link_to(activity.content['id'], "http://runkeeper.com/user/#{current_user.runkeeper_id}/activity/#{activity.content['id']}") %></td>
+          <td><%= link_to(activity.response["id"], activity.response["url"]) %></td>
+          <td><%= activity.success? %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 <% else %>
   <p>No activities synced yet. Check back in an hour or two.</p>
 <% end %>

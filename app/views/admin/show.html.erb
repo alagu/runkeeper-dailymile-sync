@@ -1,0 +1,23 @@
+<h2>Admin</h2>
+<h3>Recent Activities</h3>
+<table>
+  <thead>
+    <tr>
+      <th>When</th>
+      <th>RunKeeper ID</th>
+      <th>dailymile ID</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @activities.each do |activity| %>
+      <tr class="<%= "#{activity.success?} #{cycle('odd', 'even')}" %>">
+        <td><%= activity.created_at %></td>
+        <td><%= link_to(activity.content["id"], "http://runkeeper.com/user/#{activity.user.runkeeper_id}/activity/#{activity.content['id']}") %></td>
+        <td><%= link_to(activity.response["id"], activity.response["url"]) %></td>
+        <td><%= activity.success? %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @activities %>
