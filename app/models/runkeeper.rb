@@ -7,7 +7,12 @@ class Runkeeper
     @username = username
     @profile_url = "#{BASE_URL}/user/#{username}"
     @agent = Mechanize.new
-    @profile_page = agent.get(profile_url)
+    begin
+      @profile_page = agent.get(profile_url)
+    rescue Exception => e
+      puts "ERROR: #{e.message}. URL: #{profile_url}"
+      return nil
+    end
   end
 
   def activities(options = {})
