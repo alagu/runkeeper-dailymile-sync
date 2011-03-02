@@ -17,7 +17,12 @@
       <% unless current_page?(signup_path) %>
         <ul id="session">
           <% if current_user %>
-            <li>Welcome, <%= current_user.name %></li>
+            <li>
+              <% if current_user.image_url.present? %>
+                <%= image_tag(current_user.image_url) %>
+              <% end %>
+              Welcome, <%= current_user.name %>
+            </li>
             <li><%= link_to "My Profile", account_path %></li>
             <li><%= link_to "Sign Out", signout_path %></li>
           <% else %>

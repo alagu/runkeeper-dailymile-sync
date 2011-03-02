@@ -27,7 +27,7 @@ html, body {
 body {
   @include blueprint-typography;
   @include blueprint-interaction;
-  position: relative; 
+  position: relative;
   background: #369;
   font: normal 13px/20px $body-font; }
 
@@ -51,7 +51,7 @@ a {
   color: #369;
   font-weight: bold;
   &.fancy {
-  @include fancy-button; 
+  @include fancy-button;
   &.loud {
     @include fancy-button($fb-color, 24pt); } } }
 
@@ -91,7 +91,11 @@ div.flash {
     font-size: 16px;
     position: absolute;
     right: 0;
-    padding: 0; } }
+    padding: 0;
+    img {
+      height: 28px;
+      float: left;
+      margin: -5px 10px 0 0; } } }
 
 #content {
   position: relative; }
@@ -100,10 +104,10 @@ div.flash {
   @include column(12); }
 
 #signin {
-  @include column(12, true); 
+  @include column(12, true);
   position: absolute;
   text-align: center;
-  top: 25%; 
+  top: 25%;
   h2 {
     font-weight: bold; } }
 
