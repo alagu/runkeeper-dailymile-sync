@@ -92,10 +92,12 @@ div.flash {
     position: absolute;
     right: 0;
     padding: 0;
+    li {
+      line-height: 28px; }
     img {
       height: 28px;
       float: left;
-      margin: -5px 10px 0 0; } } }
+      margin: 0 10px 0 0; } } }
 
 #content {
   position: relative; }
