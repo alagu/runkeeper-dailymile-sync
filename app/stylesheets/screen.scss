@@ -114,9 +114,7 @@ div.flash {
 
 #signin {
   @include column(12, true);
-  position: absolute;
   text-align: center;
-  top: 25%;
   h2 {
     font-weight: bold; } }
 
