@@ -1,6 +1,6 @@
 class Runkeeper
   class Activity
-    include ActiveModel::Serializers::JSON
+    include ActiveModel::Serialization
 
     attr_accessor :id, :url, :distance, :duration, :average_pace, :average_speed,
       :calories, :climb, :begins_at, :ends_at, :notes
