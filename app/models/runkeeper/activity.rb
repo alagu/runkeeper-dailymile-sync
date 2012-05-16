@@ -35,7 +35,7 @@ class Runkeeper
       {
         :message => notes,
         :workout => {
-          :distance => { :value => distance, :units => 'miles' },
+          :distance => { :value => distance, :units => 'kilometers' },
           :activity_type => 'running',
           :completed_at => ends_at,
           :calories => calories,
