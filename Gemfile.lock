@@ -89,6 +89,7 @@ GEM
     culerity (0.2.15)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    excon (0.16.2)
     fancy-buttons (1.0.6)
       compass (= 0.10.6)
     faraday (0.5.7)
@@ -98,6 +99,14 @@ GEM
     ffi (0.6.3)
       rake (>= 0.8.7)
     haml (3.0.25)
+    heroku (2.31.2)
+      heroku-api (~> 0.3.4)
+      launchy (>= 0.3.2)
+      netrc (~> 0.7.7)
+      rest-client (~> 1.6.1)
+      rubyzip
+    heroku-api (0.3.5)
+      excon (~> 0.16.1)
     hoptoad_notifier (2.4.6)
       activesupport
       builder
@@ -107,6 +116,7 @@ GEM
     json_pure (1.5.1)
     kaminari (0.10.4)
       rails (>= 3.0.0)
+    launchy (2.0.3)
     machinist (2.0.0.beta2)
     mail (2.2.15)
       activesupport (>= 2.3.6)
@@ -119,6 +129,7 @@ GEM
     multi_json (0.0.5)
     multipart-post (1.1.0)
     net-ldap (0.1.1)
+    netrc (0.7.7)
     nokogiri (1.4.4)
     oauth (0.4.4)
     oauth2 (0.1.1)
@@ -180,6 +191,7 @@ DEPENDENCIES
   capybara
   compass
   fancy-buttons
+  heroku
   hoptoad_notifier
   httparty
   kaminari
@@ -188,6 +200,7 @@ DEPENDENCIES
   omniauth!
   pg
   rails (= 3.0.5)
+  rest-client
   shoulda
   simple_form
   sqlite3

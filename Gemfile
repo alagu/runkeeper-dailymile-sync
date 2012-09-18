@@ -11,6 +11,8 @@ gem 'hoptoad_notifier'
 gem 'cancan'
 gem 'kaminari'
 gem 'omniauth', :git => 'http://github.com/cdmwebs/omniauth.git'
+gem 'heroku'
+gem 'rest-client'
 
 group :development do
   gem 'sqlite3', :require => 'sqlite3'
