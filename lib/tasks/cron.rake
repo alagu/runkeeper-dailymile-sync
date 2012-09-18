@@ -11,6 +11,7 @@ task :cron => :environment do
           response = Dailymile.post("/entries.json?oauth_token=#{user.access_token}", :query => activity.to_dailymile)
           user.update_attribute(:last_activity_id, activity.id)
           user.activities.create(:content => activity.as_json, :success => true, :response => response)
+          user.email "Runkeeper sync #{activity.url}", "#{response}"
         rescue Exception => e
           user.activities.create(:content => activity.as_json, :success => false, :response => response)
         end
