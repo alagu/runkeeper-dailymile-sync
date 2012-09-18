@@ -16,6 +16,9 @@ task :cron => :environment do
           puts response
           user.email "Runkeeper sync #{activity.url}", "#{response}"
         rescue Exception => e
+          puts e
+          puts e.message
+          puts e.backtrace
           user.activities.create(:content => activity.as_json, :success => false, :response => response)
         end
       end
