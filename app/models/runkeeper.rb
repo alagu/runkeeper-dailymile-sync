@@ -25,32 +25,38 @@ class Runkeeper
     activity_list = []
     begin
       page = agent.get(activities_url)
+      puts "Done fetching page"
     rescue Exception => e
       puts "ERROR: #{e.message}. URL: #{activities_url}"
       return []
     end
 
-    page.search("div.activityMonth").each do |activity_entry|
-      activity_url = "#{BASE_URL}#{activity_entry[:link]}"
-      activity_id = activity_entry[:link].split('/').last
-      if activity_id.to_i > @since
-        puts "fetching #{activity_url}"
+    page.search("div.feedItem.clickable").each do |activity_entry|
+      activity_url = "#{BASE_URL}#{activity_entry.attr('data-link')}"
+      
+      if not activity_url.index('activity_redirect').nil?
+        puts "Fetching #{activity_url}"
         begin
           activity_page = agent.get(activity_url)
+          activity_id = activity_page.uri.to_s.split('/').last.to_i
+          if activity_id < @since
+            next
+          end
+          puts "Doing #{activity_page.uri.to_s}"
           activity = Activity.new(activity_page)
-          activity.url = activity_url
+          activity.url = activity_page.uri.to_s
           activity_list << activity
         rescue Exception => e
           puts "ERROR: #{e.message}. URL: #{activity_url}"
+          puts "#{e.backtrace}"
         end
-        return activity_list if activity_list.size >= @limit
       end
     end
     activity_list
   end
 
   def activities_url
-    @activities_url ||= "#{BASE_URL}/user/#{username}/activity"
+    @activities_url ||= "#{BASE_URL}/user/#{username}"
   end
 
   private

@@ -5,24 +5,32 @@ class Runkeeper
     attr_accessor :id, :url, :distance, :duration, :average_pace, :average_speed,
       :calories, :climb, :begins_at, :ends_at, :notes
 
-    def initialize(page)
-      @id = page.search('div.activityMonth.selected')[0][:link].split('/').last
-      @distance = page.search('div#statsDistance div.mainText').first.children.text
-      @duration = page.search('div#statsDuration div.mainText').first.children.text
-      @average_pace = page.search('div#statsPace div.mainText').first.children.text
-      @average_speed = page.search('div#statsSpeed div.mainText').first.children.text
-      @calories = page.search('div#statsCalories div.mainText').first.children.text
-      @climb = page.search('div#statsElevation div.mainText').first.children.text
+    def calculate_speed(pace)
+      mins  = pace.split(':').first.to_i
+      secs  = pace.split(':').last.to_i
+      mins  = mins + secs/60.0
+      speed = (60.0/mins)
+      "%0.2f" % speed
+    end
 
-      date = page.search('div#activityDateText').first.text
-      start_date, times = date.split('::')
+    def initialize(page)
+      @id            = page.uri.to_s.split('/').last
+      @distance      = page.search('div#stats div').text.split('km').first
+      @duration      = page.search('div#stats ul li').first.text.split('!').last
+      @average_pace  = page.search('div#stats ul li')[2].text.split(' ').first.split('@').last
+      @average_speed = calculate_speed(@average_pace) 
+      @calories      = page.search('div#stats ul li')[1].text.split(' ').first.split('"').last
+      @climb = "0"
+
+      date = page.search('#mainContent #details #number p').text.split("\n").first
+      start_date, year, times = date.split(',')
       start_time, end_time = times.split('-')
 
-      @begins_at = Time.parse("#{start_date} #{start_time}")
-      @ends_at = Time.parse("#{start_date} #{end_time}")
+      @begins_at = Time.parse("#{start_date} #{year} #{start_time}")
+      @ends_at = Time.parse("#{start_date} #{year} #{end_time}")
 
-      note = page.search('div#notes p').first.children.text.strip
-      @notes = note unless note =~ /not entered/
+      note = page.search('.expandableText').text.gsub("\n", "").strip
+      @notes = note unless note =~ /tired to say how it went/
     end
 
     def attributes
