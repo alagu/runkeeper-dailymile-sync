@@ -13,10 +13,15 @@ class Runkeeper
       "%0.2f" % speed
     end
 
+    def duration_seconds(time)
+      hours, minutes, seconds = time.split(':')
+      (hours.to_i * 60 * 60) + (minutes.to_i * 60) + (seconds.to_i) 
+    end
+
     def initialize(page)
       @id            = page.uri.to_s.split('/').last
       @distance      = page.search('div#stats div').text.split('km').first
-      @duration      = page.search('div#stats ul li').first.text.split('!').last
+      @duration      = duration_seconds(page.search('div#stats ul li').first.text.split('!').last)
       @average_pace  = page.search('div#stats ul li')[2].text.split(' ').first.split('@').last
       @average_speed = calculate_speed(@average_pace) 
       @calories      = page.search('div#stats ul li')[1].text.split(' ').first.split('"').last
