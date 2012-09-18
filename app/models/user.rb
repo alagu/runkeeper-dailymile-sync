@@ -1,3 +1,5 @@
+require 'rest_client'
+
 class User < ActiveRecord::Base
   has_many :activities
 
@@ -24,4 +26,15 @@ class User < ActiveRecord::Base
       user.name = auth["user_info"]["name"]  
     end  
   end 
+
+  def email(subject, message)
+    API_KEY = ENV['MAILGUN_API_KEY']
+    API_URL = "https://api:#{API_KEY}@api.mailgun.net/v2/mailgun.net"
+
+    RestClient.post API_URL+"/messages", 
+        :from => "alagu@alagu.net",
+        :to => "alagu@alagu.net",
+        :subject => subject,
+        :text => message
+  end
 end
