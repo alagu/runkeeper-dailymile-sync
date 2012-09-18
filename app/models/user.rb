@@ -26,6 +26,6 @@ class User < ActiveRecord::Base
   end 
 
   def email(subject, message)
-    Mailer.notify(subject, message)
+    Mailer.notify(subject, message).deliver
   end
 end
