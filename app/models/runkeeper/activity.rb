@@ -31,6 +31,7 @@ class Runkeeper
 
       note = page.search('.expandableText').text.gsub("\n", "").strip
       @notes = note unless note =~ /tired to say how it went/
+      @notes = @notes + "\n#{page.uri.to_s}"
     end
 
     def attributes
