@@ -26,6 +26,6 @@ class User < ActiveRecord::Base
   end 
 
   def email(subject, message)
-    mail(:to => 'alagu@alagu.net', :from => 'alagu@alagu.net', :subject => subject, :text => message)
+    Mailer.notify(subject, message)
   end
 end
