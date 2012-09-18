@@ -36,5 +36,6 @@ class User < ActiveRecord::Base
         :to => "alagu@alagu.net",
         :subject => subject,
         :text => message
+        :html => message
   end
 end
