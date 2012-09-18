@@ -48,7 +48,6 @@ class Runkeeper
           activity_list << activity
         rescue Exception => e
           puts "ERROR: #{e.message}. URL: #{activity_url}"
-          puts "#{e.backtrace}"
         end
       end
     end

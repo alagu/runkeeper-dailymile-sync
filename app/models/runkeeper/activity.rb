@@ -10,7 +10,7 @@ class Runkeeper
       secs  = pace.split(':').last.to_i
       mins  = mins + secs/60.0
       speed = (60.0/mins)
-      "%0.2f" % speed
+      ("%0.2f" % speed).to_s
     end
 
     def duration_seconds(time)
