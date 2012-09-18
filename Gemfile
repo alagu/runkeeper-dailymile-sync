@@ -13,7 +13,7 @@ gem 'kaminari'
 gem 'omniauth', :git => 'http://github.com/cdmwebs/omniauth.git'
 
 group :development do
-  gem 'sqlite3-ruby', :require => 'sqlite3'
+  gem 'sqlite3', :require => 'sqlite3'
 end
 
 group :heroku do
