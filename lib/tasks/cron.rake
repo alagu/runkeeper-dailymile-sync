@@ -22,7 +22,6 @@ task :cron => :environment do
           user.activities.create(:content => activity.as_json, :success => false, :response => response)
         end
       end
-      break
     end
   end
 end
