@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
 
   def email(subject, message)
     api_key = ENV['MAILGUN_API_KEY']
-    api_url = "https://api:#{API_KEY}@api.mailgun.net/v2/mailgun.net"
+    api_url = "https://api:#{api_key}@api.mailgun.net/v2/mailgun.net"
 
     RestClient.post api_url + "/messages", 
         :from => "alagu@alagu.net",
