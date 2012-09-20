@@ -35,11 +35,12 @@ class Runkeeper
       activity_url = "#{BASE_URL}#{activity_entry.attr('data-link')}"
       
       if not activity_url.index('activity_redirect').nil?
-        puts "Fetching #{activity_url}"
         begin
           activity_page = agent.get(activity_url)
           activity_id = activity_page.uri.to_s.split('/').last.to_i
-          if activity_id < @since
+          puts "Fetching #{activity_id}"
+
+          if activity_id <= @since
             next
           end
           puts "Doing #{activity_page.uri.to_s}"
