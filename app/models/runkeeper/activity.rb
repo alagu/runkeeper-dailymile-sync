@@ -61,9 +61,5 @@ class Runkeeper
     def to_json(*args)
       to_dailymile.to_json(*args)
     end
-
-    def duration
-      ends_at - begins_at
-    end
   end
 end
