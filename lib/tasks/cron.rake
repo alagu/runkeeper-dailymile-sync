@@ -14,11 +14,11 @@ task :cron => :environment do
           user.update_attribute(:last_activity_id, activity.id)
           user.activities.create(:content => activity.as_json, :success => true, :response => response)
           puts response
-          user.email "Runkeeper sync #{activity.url}", "#{response}"
         rescue Exception => e
           puts e
           puts e.message
           puts e.backtrace
+          user.email "Runkeeper #{e}", "#{e.message} #{e.backtrace}"
           user.activities.create(:content => activity.as_json, :success => false, :response => response)
         end
       end
